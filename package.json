@@ -1,5 +1,5 @@
 {
-  "name": "@rmw/zst",
+  "name": "cppzst",
   "version": "2.0.2",
   "description": "Zstd wrapper for Nodejs 14 and above",
   "main": "index.js",
@@ -21,13 +21,11 @@
     "decompression"
   ],
   "author": "zwb-ict",
-  "contributors": [
-    {
-      "name": "gcxfd",
-      "email": "i@rmw.link",
-      "url": "https://github.com/gcxfd"
-    }
-  ],
+  "contributors": [{
+    "name": "gcxfd",
+    "email": "i@rmw.link",
+    "url": "https://github.com/gcxfd"
+  }],
   "license": "MIT",
   "homepage": "https://github.com/rmw-lib/node-zstd#readme",
   "dependencies": {
