@@ -46,7 +46,7 @@ namespace ZSTD_NODE {
     Local<String> key;
     key = Nan::New<String>("dict").ToLocalChecked();
     if (Has(userParams, key).FromJust()) {
-      Local<Object> dictBuf = Get(userParams, key).ToLocalChecked()->ToObject();
+      Local<Object> dictBuf = Get(userParams, key).ToLocalChecked()->ToObject(Nan::GetCurrentContext()).ToLocalChecked();
       dictSize = Length(dictBuf);
       dict = alloc.Alloc(dictSize);
       memcpy(dict, Data(dictBuf), dictSize);
@@ -87,7 +87,7 @@ namespace ZSTD_NODE {
     if (!info.IsConstructCall()) {
       return Nan::ThrowError("StreamDecompressor() must be called as a constructor");
     }
-    StreamDecompressor *sd = new StreamDecompressor(info[0]->ToObject());
+    StreamDecompressor *sd = new StreamDecompressor(info[0]->ToObject(Nan::GetCurrentContext()).ToLocalChecked());
     sd->Wrap(info.This());
     info.GetReturnValue().Set(info.This());
   }
@@ -98,7 +98,7 @@ namespace ZSTD_NODE {
 
   NAN_METHOD(StreamDecompressor::Copy) {
     StreamDecompressor* sd = ObjectWrap::Unwrap<StreamDecompressor>(info.Holder());
-    Local<Object> chunkBuf = info[0]->ToObject();
+    Local<Object> chunkBuf = info[0]->ToObject(Nan::GetCurrentContext()).ToLocalChecked();
     char *chunk = Data(chunkBuf);
     size_t chunkSize = Length(chunkBuf);
     if (chunkSize != 0) {
@@ -116,7 +116,8 @@ namespace ZSTD_NODE {
 
     Callback *callback = new Callback(info[0].As<Function>());
     StreamDecompressWorker *worker = new StreamDecompressWorker(callback, sd);
-    if (info[1]->BooleanValue()) {
+
+    if (Nan::To<bool>(info[1]).FromJust()) {
       AsyncQueueWorker(worker);
     } else {
       worker->Execute();
