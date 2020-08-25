@@ -1,7 +1,7 @@
 {
-  "name": "node-zstd",
+  "name": "@rmw/zst",
   "version": "2.0.1",
-  "description": "Zstd wrapper for Nodejs",
+  "description": "Zstd wrapper for Nodejs 14 and above",
   "main": "index.js",
   "scripts": {
     "test": "mocha -t 5000",
@@ -13,7 +13,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/zwb-ict/node-zstd.git"
+    "url": "git+https://github.com/rmw-lib/node-zstd.git"
   },
   "keywords": [
     "zstd",
@@ -21,18 +21,13 @@
     "decompression"
   ],
   "author": "zwb-ict",
-  "contributors": [
-    {
-      "name": "Tyler Stiene",
-      "email": "tystiene@gmail.com",
-      "url": "https://github.com/Stieneee"
-    }
-  ],
+  "contributors": [{
+    "name": "gcxfd",
+    "email": "i@rmw.link",
+    "url": "https://github.com/gcxfd"
+  }],
   "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/zwb-ict/node-zstd/issues"
-  },
-  "homepage": "https://github.com/zwb-ict/node-zstd#readme",
+  "homepage": "https://github.com/rmw-lib/node-zstd#readme",
   "dependencies": {
     "bindings": "^1.5.0",
     "nan": "^2.14.1",
