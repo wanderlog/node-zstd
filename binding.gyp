@@ -8,7 +8,7 @@
         "src/common"
       ],
       "dependencies": [
-        "<(module_root_dir)/deps/zstd.gyp:zstd_compressor"
+        "<(module_root_dir)/deps/zstd.gyp:compress"
       ],
       "sources": [
         "src/common/stream_coder.cc",
@@ -41,7 +41,7 @@
         "src/common"
       ],
       "dependencies": [
-        "<(module_root_dir)/deps/zstd.gyp:zstd_decompressor"
+        "<(module_root_dir)/deps/zstd.gyp:decompress"
       ],
       "sources": [
         "src/common/stream_coder.cc",
