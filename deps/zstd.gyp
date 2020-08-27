@@ -1,7 +1,7 @@
 {
   "targets": [
     {
-      "target_name": "compressor",
+      "target_name": "zstd_compressor",
       "type": "static_library",
       "standlone_static_library": 1,
       "defines": [
@@ -38,7 +38,7 @@
       ]
     },
     {
-      "target_name": "decompressor",
+      "target_name": "zstd_decompress",
       "type": "static_library",
       "standlone_static_library": 1,
       "defines": [
