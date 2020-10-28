@@ -1,16 +1,11 @@
-'use strict';
+import {promisify} from 'util'
+import bindings from 'bindings'
+import stream from 'stream'
+import util from 'util'
 
-exports.compress = compress;
-exports.decompress = decompress;
-exports.compressSync = compressSync;
-exports.decompressSync = decompressSync;
-exports.compressStream = compressStream;
-exports.decompressStream = decompressStream;
-
-var compressor = require('bindings')('compressor.node');
-var decompressor = require('bindings')('decompressor.node');
-var Transform = require('stream').Transform;
-var util = require('util');
+var compressor = bindings('compressor.node');
+var decompressor = bindings('decompressor.node');
+var Transform = stream.Transform;
 
 function compress(input, params, cb) {
   if (arguments.length === 2) {
@@ -229,3 +224,10 @@ function decompressStreamChunk(stream, chunk, decompressor, status, sync, done) 
 function decompressStream(params) {
   return new TransformStreamDecompressor(params);
 }
+
+export compress = promisify(compress);
+export decompress = promisify(decompress);
+export compressSync = compressSync;
+export decompressSync = decompressSync;
+export compressStream = compressStream;
+export decompressStream = decompressStream;
