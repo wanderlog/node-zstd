@@ -1,17 +1,17 @@
-node-zstd [![version](https://img.shields.io/npm/v/node-zstd.svg)](https://www.npmjs.com/package/node-zstd) [![ZSTD/v1.3.4](https://img.shields.io/badge/ZSTD-v1.3.4-green.svg)](https://github.com/facebook/zstd/releases/tag/v1.3.4)
+cppzst [![version](https://img.shields.io/npm/v/cppzst.svg)](https://www.npmjs.com/package/cppzst) [![ZSTD/v1.3.4](https://img.shields.io/badge/ZSTD-v1.3.4-green.svg)](https://github.com/facebook/zstd/releases/tag/v1.3.4)
 =====
 
 [![Build Status][1]][2]
 
-[1]: https://travis-ci.org/zwb-ict/node-zstd.svg?branch=master
-[2]: https://travis-ci.org/zwb-ict/node-zstd
+[1]: https://travis-ci.org/zwb-ict/cppzst.svg?branch=master
+[2]: https://travis-ci.org/zwb-ict/cppzst
 
 Zstd wrapper for Nodejs
 
 ## Installation
 
 ```bash
-$ npm install node-zstd --save
+$ npm install cppzst --save
 ```
 
 ## Usage
@@ -21,20 +21,17 @@ $ npm install node-zstd --save
 #### compress(buffer[, zstdCompressParams], callback)
 
 ```javascript
-const compress = require('node-zstd').compress;
+import {compress} from 'cppzst';
 
-compress(input, function(err, output)) {
-  // ...
-};
+await compress(input);
+
 ```
 #### decompress(buffer[, zstdDecompressParams], callback)
 
 ```javascript
-const decompress = require('node-zstd').decompress;
+import {decompress} from 'cppzst';
 
-decompress(input, function(err, output) {
-  // ...
-});
+await decompress(input)
 ```
 
 ### Sync
@@ -42,7 +39,7 @@ decompress(input, function(err, output) {
 #### compressSync(buffer[, zstdCompressParams])
 
 ```javascript
-const compressSync = require('node-zstd').compressSync;
+const compressSync = require('cppzst').compressSync;
 
 try {
   var output = compressSync(input);
@@ -54,7 +51,7 @@ try {
 #### decompressSync(buffer[, zstdCompressParams])
 
 ```javascript
-const decompressSync = require('node-zstd').decompressSync;
+const decompressSync = require('cppzst').decompressSync;
 
 try {
   var output = decompressSync(input);
@@ -68,7 +65,7 @@ try {
 #### compressStream([zstdCompressParams])
 
 ```javascript
-const compressStream = require('node-zstd').compressStream;
+const compressStream = require('cppzst').compressStream;
 const fs = require('fs');
 
 fs.createReadStream('path/to/input')
@@ -79,7 +76,7 @@ fs.createReadStream('path/to/input')
 #### decompressStream([zstdCompressParams])
 
 ```javascript
-const decompressStream = require('node-zstd').decompressStream;
+const decompressStream = require('cppzst').decompressStream;
 const fs = require('fs');
 
 fs.createReadStream('path/to/input')

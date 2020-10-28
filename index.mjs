@@ -7,7 +7,7 @@ var compressor = bindings('compressor.node');
 var decompressor = bindings('decompressor.node');
 var Transform = stream.Transform;
 
-function compress(input, params, cb) {
+export const compress = promisify(function(input, params, cb) {
   if (arguments.length === 2) {
     cb = params;
     params = {};
@@ -32,9 +32,9 @@ function compress(input, params, cb) {
     cb(null, Buffer.concat(chunks, length));
   });
   stream.end(input);
-}
+});
 
-function decompress(input, params, cb) {
+export const decompress = promisify(function (input, params, cb) {
   if (arguments.length === 2) {
     cb = params;
     params = {};
@@ -59,9 +59,9 @@ function decompress(input, params, cb) {
     cb(null, Buffer.concat(chunks, length));
   });
   stream.end(input);
-}
+});
 
-function compressSync(input, params) {
+export function compressSync(input, params) {
   if (!Buffer.isBuffer(input)) {
     throw new Error('Input is not a buffer.');
   }
@@ -79,7 +79,7 @@ function compressSync(input, params) {
   return Buffer.concat(chunks, length);
 }
 
-function decompressSync(input, params) {
+export function decompressSync(input, params) {
   if (!Buffer.isBuffer(input)) {
     throw new Error('Input is not a buffer.');
   }
@@ -97,7 +97,7 @@ function decompressSync(input, params) {
   return Buffer.concat(chunks, length);
 }
 
-function TransformStreamCompressor(params, sync) {
+export function TransformStreamCompressor(params, sync) {
   Transform.call(this, params);
 
   this.compressor = new compressor.StreamCompressor(params || {});
@@ -130,7 +130,7 @@ TransformStreamCompressor.prototype._flush = function(done) {
 };
 
 // We need to fill the blockSize for better compression results
-function compressStreamChunk(stream, chunk, compressor, status, sync, done) {
+export function compressStreamChunk(stream, chunk, compressor, status, sync, done) {
   var length = chunk.length;
 
   if (length > status.remaining) {
@@ -157,11 +157,11 @@ function compressStreamChunk(stream, chunk, compressor, status, sync, done) {
   }
 }
 
-function compressStream(params) {
+export function compressStream(params) {
   return new TransformStreamCompressor(params);
 }
 
-function TransformStreamDecompressor(params, sync) {
+export function TransformStreamDecompressor(params, sync) {
   Transform.call(this, params);
 
   this.decompressor = new decompressor.StreamDecompressor(params || {});
@@ -194,7 +194,7 @@ TransformStreamDecompressor.prototype._flush = function(done) {
 };
 
 // We need to fill the blockSize for better compression results
-function decompressStreamChunk(stream, chunk, decompressor, status, sync, done) {
+export function decompressStreamChunk(stream, chunk, decompressor, status, sync, done) {
   var length = chunk.length;
 
   if (length > status.remaining) {
@@ -221,13 +221,7 @@ function decompressStreamChunk(stream, chunk, decompressor, status, sync, done) 
   }
 }
 
-function decompressStream(params) {
+export function decompressStream(params) {
   return new TransformStreamDecompressor(params);
-}
+};
 
-export compress = promisify(compress);
-export decompress = promisify(decompress);
-export compressSync = compressSync;
-export decompressSync = decompressSync;
-export compressStream = compressStream;
-export decompressStream = decompressStream;
