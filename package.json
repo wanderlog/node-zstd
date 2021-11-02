@@ -1,6 +1,6 @@
 {
   "name": "@xingrz/cppzst",
-  "version": "2.1.0-alpha.0",
+  "version": "2.1.0-alpha.1",
   "description": "Zstd binding for Nodejs, with TypeScript support.",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
@@ -39,7 +39,7 @@
       "url": "https://github.com/xingrz"
     }
   ],
-  "license": "AGPL-3.0-or-later",
+  "license": "MIT",
   "dependencies": {
     "bindings": "^1.5.0",
     "nan": "^2.14.2",
