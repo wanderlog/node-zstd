@@ -1,17 +1,14 @@
-cppzst [![version](https://img.shields.io/npm/v/cppzst.svg)](https://www.npmjs.com/package/cppzst) [![ZSTD/v1.3.4](https://img.shields.io/badge/ZSTD-v1.3.4-green.svg)](https://github.com/facebook/zstd/releases/tag/v1.3.4)
+@xingrz/cppzst [![test](https://github.com/xingrz/cppzst/actions/workflows/test.yml/badge.svg)](https://github.com/xingrz/cppzst/actions/workflows/test.yml)
 =====
 
-[![Build Status][1]][2]
+[![][npm-version]][npm-url] [![][npm-downloads]][npm-url] [![license][license-img]][license-url] [![issues][issues-img]][issues-url] [![stars][stars-img]][stars-url] [![commits][commits-img]][commits-url]
 
-[1]: https://travis-ci.org/zwb-ict/cppzst.svg?branch=master
-[2]: https://travis-ci.org/zwb-ict/cppzst
-
-Zstd wrapper for Nodejs
+Zstd binding for Nodejs, with TypeScript support.
 
 ## Installation
 
-```bash
-$ npm install cppzst --save
+```sh
+$ npm install @xingrz/cppzst --save
 ```
 
 ## Usage
@@ -20,29 +17,37 @@ $ npm install cppzst --save
 
 #### compress(buffer[, zstdCompressParams])
 
-```javascript
-import {compress} from 'cppzst';
+```ts
+import { compress } from 'cppzst';
 
-await compress(input);
-
+try {
+  const output = await compress(input);
+} catch(err) {
+  // ...
+}
 ```
+
 #### decompress(buffer[, zstdDecompressParams])
 
-```javascript
-import {decompress} from 'cppzst';
+```ts
+import { decompress } from 'cppzst';
 
-await decompress(input)
+try {
+  const output = await decompress(input);
+} catch(err) {
+  // ...
+}
 ```
 
 ### Sync
 
 #### compressSync(buffer[, zstdCompressParams])
 
-```javascript
-const compressSync = require('cppzst').compressSync;
+```ts
+import { compressSync } from 'cppzst';
 
 try {
-  var output = compressSync(input);
+  const output = compressSync(input);
 } catch(err) {
   // ...
 }
@@ -50,11 +55,11 @@ try {
 
 #### decompressSync(buffer[, zstdCompressParams])
 
-```javascript
-const decompressSync = require('cppzst').decompressSync;
+```ts
+import { decompressSync } from 'cppzst';
 
 try {
-  var output = decompressSync(input);
+  const output = decompressSync(input);
 } catch(err) {
   // ...
 }
@@ -64,44 +69,44 @@ try {
 
 #### compressStream([zstdCompressParams])
 
-```javascript
-const compressStream = require('cppzst').compressStream;
-const fs = require('fs');
+```ts
+import { compressStream } from 'cppzst';
+import { createReadStream, createWriteStream } from 'fs';
 
-fs.createReadStream('path/to/input')
+createReadStream('path/to/input')
   .pipe(compressStream())
-  .pipe(fs.createWriteStream('path/to/output'));
+  .pipe(createWriteStream('path/to/output'));
 ```
 
 #### decompressStream([zstdCompressParams])
 
-```javascript
-const decompressStream = require('cppzst').decompressStream;
-const fs = require('fs');
+```ts
+import { decompressStream } from 'cppzst';
+import { createReadStream, createWriteStream } from 'fs';
 
-fs.createReadStream('path/to/input')
+createReadStream('path/to/input')
   .pipe(decompressStream())
-  .pipe(fs.createWriteStream('path/to/output'));
+  .pipe(createWriteStream('path/to/output'));
 ```
 
 ### ZSTD Params
 
 The `compress`, `compressSync` and `compressStream` methods may accept an optional `zstdCompressParams` object to define compress level and/or dict.
 
-```javascript
+```ts
 const zstdCompressParams = {
   level: 5, // default 1
   dict: new Buffer('hello zstd'), // if dict null, left level only.
-  dictSize: dict.length  // if dict null, left level only.
+  dictSize: dict.length,  // if dict null, left level only.
 };
 ```
 
 The `decompress`, `decompressSync` and `decompressStream` methods may accept an optional `zstdDecompressParams` object to define dict.
 
-```javascript
+```ts
 const zdtdDecompressParams = {
   dict: new Buffer('hello zstd'),
-  dictSize: dict.length
+  dictSize: dict.length,
 };
 ```
 
@@ -113,3 +118,15 @@ $ npm test
 
 ## License
 MIT
+
+[npm-version]: https://img.shields.io/npm/v/@xingrz/cppzst.svg?style=flat-square
+[npm-downloads]: https://img.shields.io/npm/dm/@xingrz/cppzst.svg?style=flat-square
+[npm-url]: https://www.npmjs.org/package/@xingrz/cppzst
+[license-img]: https://img.shields.io/github/license/xingrz/cppzst?style=flat-square
+[license-url]: LICENSE
+[issues-img]: https://img.shields.io/github/issues/xingrz/cppzst?style=flat-square
+[issues-url]: https://github.com/xingrz/cppzst/issues
+[stars-img]: https://img.shields.io/github/stars/xingrz/cppzst?style=flat-square
+[stars-url]: https://github.com/xingrz/cppzst/stargazers
+[commits-img]: https://img.shields.io/github/last-commit/xingrz/cppzst?style=flat-square
+[commits-url]: https://github.com/xingrz/cppzst/commits/master

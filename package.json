@@ -1,7 +1,7 @@
 {
   "name": "@xingrz/cppzst",
   "version": "2.1.0-alpha.0",
-  "description": "Zstd wrapper for Nodejs 10 and above",
+  "description": "Zstd binding for Nodejs, with TypeScript support.",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
   "engines": {
