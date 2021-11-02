@@ -18,7 +18,7 @@ $ npm install @xingrz/cppzst --save
 #### compress(buffer[, zstdCompressParams])
 
 ```ts
-import { compress } from 'cppzst';
+import { compress } from '@xingrz/cppzst';
 
 try {
   const output = await compress(input);
@@ -30,7 +30,7 @@ try {
 #### decompress(buffer[, zstdDecompressParams])
 
 ```ts
-import { decompress } from 'cppzst';
+import { decompress } from '@xingrz/cppzst';
 
 try {
   const output = await decompress(input);
@@ -44,7 +44,7 @@ try {
 #### compressSync(buffer[, zstdCompressParams])
 
 ```ts
-import { compressSync } from 'cppzst';
+import { compressSync } from '@xingrz/cppzst';
 
 try {
   const output = compressSync(input);
@@ -56,7 +56,7 @@ try {
 #### decompressSync(buffer[, zstdCompressParams])
 
 ```ts
-import { decompressSync } from 'cppzst';
+import { decompressSync } from '@xingrz/cppzst';
 
 try {
   const output = decompressSync(input);
@@ -70,7 +70,7 @@ try {
 #### compressStream([zstdCompressParams])
 
 ```ts
-import { compressStream } from 'cppzst';
+import { compressStream } from '@xingrz/cppzst';
 import { createReadStream, createWriteStream } from 'fs';
 
 createReadStream('path/to/input')
@@ -81,7 +81,7 @@ createReadStream('path/to/input')
 #### decompressStream([zstdCompressParams])
 
 ```ts
-import { decompressStream } from 'cppzst';
+import { decompressStream } from '@xingrz/cppzst';
 import { createReadStream, createWriteStream } from 'fs';
 
 createReadStream('path/to/input')
