@@ -1,19 +1,25 @@
 {
-  "name": "cppzst",
-  "version": "2.0.7",
+  "name": "@xingrz/cppzst",
+  "version": "2.1.0-alpha.0",
   "description": "Zstd wrapper for Nodejs 14 and above",
-  "main": "index.mjs",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "engines": {
+    "node": ">=14"
+  },
   "scripts": {
     "test": "mocha -t 5000",
-    "build:dev": "node-gyp -j 16 build --debug",
-    "build": "node-gyp -j 16 build",
+    "build:gyp:dev": "node-gyp -j 16 build --debug",
+    "build:gyp": "node-gyp -j 16 build",
+    "build:ts": "tsc -p .",
+    "build": "npm run build:gyp && npm run build:ts",
     "rebuild:dev": "node-gyp -j 16 rebuild --debug",
     "rebuild": "node-gyp -j 16 rebuild",
     "clean": "node-gyp clean"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/rmw-lib/cppzst.git"
+    "url": "git+https://github.com/xingrz/cppzst.git"
   },
   "keywords": [
     "zstd",
@@ -26,6 +32,11 @@
       "name": "gcxfd",
       "email": "i@rmw.link",
       "url": "https://github.com/gcxfd"
+    },
+    {
+      "name": "XiNGRZ",
+      "email": "hi@xingrz.me",
+      "url": "https://github.com/xingrz"
     }
   ],
   "license": "AGPL-3.0-or-later",
@@ -33,10 +44,14 @@
     "bindings": "^1.5.0",
     "nan": "^2.14.2",
     "nyc": "^15.1.0",
+    "pond": "^2.1.0",
     "segfault-handler": "^1.3.0"
   },
   "devDependencies": {
+    "@types/bindings": "^1.5.1",
+    "@types/node": "^16.11.6",
     "chai": "^4.2.0",
-    "mocha": "^8.2.0"
+    "mocha": "^8.2.0",
+    "typescript": "^4.4.4"
   }
 }

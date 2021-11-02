@@ -11,14 +11,14 @@ function testBufferAsync(method, bufferFile, resultFile, done, params) {
   var result = fs.readFileSync(path.join(__dirname, '/fixtures/', resultFile));
 
   if (method.name === 'compress') {
-    method(buffer, params, function (err, output) {
+    method(buffer, params).then(function (output) {
       expect(output.length).to.be.gte(4);
       done();
     });
   }
 
   if (method.name === 'decompress') {
-    method(buffer, function (err, output) {
+    method(buffer).then(function (output) {
       expect(output).to.deep.equal(result);
       done();
     });

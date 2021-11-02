@@ -1,0 +1,19 @@
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "target": "esnext",
+    "rootDir": "ts",
+    "outDir": "lib",
+    "moduleResolution": "node",
+    "strict": true,
+    "experimentalDecorators": true,
+    "esModuleInterop": true,
+    "declaration": true,
+    "types": [
+      "node",
+    ],
+  },
+  "include": [
+    "ts/**/*",
+  ],
+}

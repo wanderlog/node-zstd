@@ -18,7 +18,7 @@ $ npm install cppzst --save
 
 ### Async
 
-#### compress(buffer[, zstdCompressParams], callback)
+#### compress(buffer[, zstdCompressParams])
 
 ```javascript
 import {compress} from 'cppzst';
@@ -26,7 +26,7 @@ import {compress} from 'cppzst';
 await compress(input);
 
 ```
-#### decompress(buffer[, zstdDecompressParams], callback)
+#### decompress(buffer[, zstdDecompressParams])
 
 ```javascript
 import {decompress} from 'cppzst';

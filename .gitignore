@@ -33,6 +33,7 @@
 
 # Node Related Folders
 build
+lib
 node_modules
 coverage
 .nyc_output
