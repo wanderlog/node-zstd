@@ -1,11 +1,11 @@
 {
   "name": "@xingrz/cppzst",
   "version": "2.1.0-alpha.0",
-  "description": "Zstd wrapper for Nodejs 14 and above",
+  "description": "Zstd wrapper for Nodejs 10 and above",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
   "engines": {
-    "node": ">=14"
+    "node": ">=10"
   },
   "scripts": {
     "test": "mocha -t 5000",
