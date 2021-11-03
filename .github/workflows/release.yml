@@ -1,0 +1,94 @@
+name: release
+
+on:
+  release:
+    types: [published]
+
+jobs:
+  build:
+    runs-on: ${{ matrix.os }}
+
+    strategy:
+      matrix:
+        os: [windows-latest, ubuntu-latest, macos-latest]
+        node: ['10', '12', '14', '16']
+
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          submodules: recursive
+
+      - name: Use Node.js ${{ matrix.node }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node }}
+
+      - name: Install
+        run: npm install --ignore-scripts
+
+      - name: Prebuildify for ${{ matrix.os }} and Node.js ${{ matrix.node }}
+        run: npm run prebuildify
+
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v2
+        with:
+          name: prebuilds
+          path: prebuilds
+
+  test:
+    needs: build
+    runs-on: ${{ matrix.os }}
+
+    strategy:
+      matrix:
+        os: [windows-latest, ubuntu-latest, macos-latest]
+        node: ['10', '12', '14', '16']
+
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          submodules: recursive
+
+      - name: Use Node.js ${{ matrix.node }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node }}
+
+      - name: Download prebuilt artifacts
+        uses: actions/download-artifact@v2
+        with:
+          name: prebuilds
+          path: prebuilds
+
+      - name: Install and build TypeScript
+        run: npm install && npm run build:ts
+
+      - name: Run test with prebuilds
+        run: npm test
+
+  publish:
+    needs: test
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          submodules: recursive
+
+      - uses: actions/setup-node@v1
+        with:
+          node-version: '16'
+
+      - name: Download prebuilt artifacts
+        uses: actions/download-artifact@v2
+        with:
+          name: prebuilds
+          path: prebuilds
+
+      - name: Install and build TypeScript
+        run: npm install && npm run build:ts
+
+      - name: Publish
+        run: npm publish --access=public
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}

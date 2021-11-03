@@ -16,7 +16,7 @@
     "build": "npm run build:gyp && npm run build:ts",
     "rebuild:dev": "node-gyp -j 16 rebuild --debug",
     "rebuild": "node-gyp -j 16 rebuild",
-    "prebuildify": "prebuildify -t $(node -v) --strip",
+    "prebuildify": "prebuildify -t node@ --strip",
     "clean": "node-gyp clean"
   },
   "repository": {
