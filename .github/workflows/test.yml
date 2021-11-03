@@ -3,7 +3,7 @@ name: test
 on: [ push, pull_request ]
 
 jobs:
-  build:
+  test:
     runs-on: ${{ matrix.os }}
 
     strategy:
@@ -13,9 +13,8 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
-
-      - name: Pull submodules
-        run: git submodule update --init --recursive
+        with:
+          submodules: recursive
 
       - name: Use Node.js ${{ matrix.node }}
         uses: actions/setup-node@v1
