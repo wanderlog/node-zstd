@@ -1,6 +1,6 @@
-import bindings from 'bindings';
+import { join } from 'path';
 
-const binding = bindings('binding.node');
+const binding = require('node-gyp-build')(join(__dirname, '..'));
 
 type ZstdCallback = (err: Error | null, output?: Buffer) => void;
 
