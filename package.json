@@ -1,6 +1,6 @@
 {
   "name": "@xingrz/cppzst",
-  "version": "2.1.0-alpha.3",
+  "version": "2.1.0-alpha.4",
   "description": "Zstd binding for Nodejs, with TypeScript support.",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
