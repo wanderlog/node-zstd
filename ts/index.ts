@@ -1,8 +1,7 @@
 import { Transform, TransformCallback } from 'stream';
 import pond from 'pond';
 
-import Compressor, { ZstdCompressParams } from './compressor';
-import Decompressor, { ZstdDecompressParams } from './decompressor';
+import zstd, { ZstdCompressParams, ZstdDecompressParams } from './zstd';
 
 export async function compress(input: Buffer, params: ZstdCompressParams = {}): Promise<Buffer> {
   if (!Buffer.isBuffer(input)) {
@@ -70,13 +69,13 @@ interface TransformStatus {
 }
 
 export class TransformStreamCompressor extends Transform {
-  compressor: typeof Compressor.StreamCompressor;
+  compressor: typeof zstd.StreamCompressor;
   sync: boolean;
   status: TransformStatus;
 
   constructor(params: ZstdCompressParams, sync = false) {
     super();
-    this.compressor = new Compressor.StreamCompressor(params || {});
+    this.compressor = new zstd.StreamCompressor(params || {});
     this.sync = sync;
     const blockSize = this.compressor.getBlockSize();
     this.status = {
@@ -108,7 +107,7 @@ export class TransformStreamCompressor extends Transform {
 export function compressStreamChunk(
   stream: Transform,
   chunk: Buffer,
-  compressor: typeof Compressor.StreamCompressor,
+  compressor: typeof zstd.StreamCompressor,
   status: TransformStatus,
   sync: boolean,
   done: (err?: Error) => void) {
@@ -143,13 +142,13 @@ export function compressStream(params: ZstdCompressParams): TransformStreamCompr
 }
 
 export class TransformStreamDecompressor extends Transform {
-  decompressor: typeof Decompressor.StreamDecompressor;
+  decompressor: typeof zstd.StreamDecompressor;
   sync: boolean;
   status: TransformStatus;
 
   constructor(params: ZstdDecompressParams, sync = false) {
     super();
-    this.decompressor = new Decompressor.StreamDecompressor(params || {});
+    this.decompressor = new zstd.StreamDecompressor(params || {});
     this.sync = sync || false;
     const blockSize = this.decompressor.getBlockSize();
     this.status = {
@@ -181,7 +180,7 @@ export class TransformStreamDecompressor extends Transform {
 export function decompressStreamChunk(
   stream: Transform,
   chunk: Buffer,
-  decompressor: typeof Decompressor.StreamDecompressor,
+  decompressor: typeof zstd.StreamDecompressor,
   status: TransformStatus,
   sync: boolean,
   done: (err?: Error) => void) {
