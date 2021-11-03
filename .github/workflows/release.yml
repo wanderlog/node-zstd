@@ -78,6 +78,7 @@ jobs:
       - uses: actions/setup-node@v1
         with:
           node-version: '16'
+          registry-url: 'https://registry.npmjs.org'
 
       - name: Download prebuilt artifacts
         uses: actions/download-artifact@v2
