@@ -27,7 +27,7 @@ export async function decompress(input: Buffer, params: ZstdDecompressParams = {
   return pipeline.spoon();
 }
 
-export function compressSync(input: Buffer, params: ZstdCompressParams): Buffer {
+export function compressSync(input: Buffer, params: ZstdCompressParams = {}): Buffer {
   if (!Buffer.isBuffer(input)) {
     throw new Error('Input is not a buffer.');
   }
@@ -45,7 +45,7 @@ export function compressSync(input: Buffer, params: ZstdCompressParams): Buffer 
   return Buffer.concat(chunks, length);
 }
 
-export function decompressSync(input: Buffer, params: ZstdDecompressParams): Buffer {
+export function decompressSync(input: Buffer, params: ZstdDecompressParams = {}): Buffer {
   if (!Buffer.isBuffer(input)) {
     throw new Error('Input is not a buffer.');
   }
@@ -73,7 +73,7 @@ export class TransformStreamCompressor extends Transform {
   sync: boolean;
   status: TransformStatus;
 
-  constructor(params: ZstdCompressParams, sync = false) {
+  constructor(params: ZstdCompressParams = {}, sync = false) {
     super();
     this.compressor = new zstd.StreamCompressor(params || {});
     this.sync = sync;
@@ -137,7 +137,7 @@ export function compressStreamChunk(
   }
 }
 
-export function compressStream(params: ZstdCompressParams): TransformStreamCompressor {
+export function compressStream(params: ZstdCompressParams = {}): TransformStreamCompressor {
   return new TransformStreamCompressor(params);
 }
 
@@ -146,7 +146,7 @@ export class TransformStreamDecompressor extends Transform {
   sync: boolean;
   status: TransformStatus;
 
-  constructor(params: ZstdDecompressParams, sync = false) {
+  constructor(params: ZstdDecompressParams = {}, sync = false) {
     super();
     this.decompressor = new zstd.StreamDecompressor(params || {});
     this.sync = sync || false;
@@ -210,6 +210,6 @@ export function decompressStreamChunk(
   }
 }
 
-export function decompressStream(params: ZstdDecompressParams): TransformStreamDecompressor {
+export function decompressStream(params: ZstdDecompressParams = {}): TransformStreamDecompressor {
   return new TransformStreamDecompressor(params);
 };
