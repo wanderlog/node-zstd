@@ -12,7 +12,7 @@ export async function compress(input: Buffer, params: ZstdCompressParams = {}): 
   const pipeline = pond(stream);
   stream.end(input);
 
-  return pipeline.spoon()!;
+  return pipeline.spoon();
 }
 
 export async function decompress(input: Buffer, params: ZstdDecompressParams = {}): Promise<Buffer> {
@@ -24,7 +24,7 @@ export async function decompress(input: Buffer, params: ZstdDecompressParams = {
   const pipeline = pond(stream);
   stream.end(input);
 
-  return pipeline.spoon()!;
+  return pipeline.spoon();
 }
 
 export function compressSync(input: Buffer, params: ZstdCompressParams): Buffer {
