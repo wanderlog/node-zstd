@@ -1,4 +1,4 @@
-# @skhaz/cppzst [![test](https://github.com/skhaz/cppzst/actions/workflows/test.yml/badge.svg)](https://github.com/skhaz/cppzst/actions/workflows/test.yml)
+# @skhaz/cppzst
 
 [![][npm-version]][npm-url] [![][npm-downloads]][npm-url] [![license][license-img]][license-url] [![issues][issues-img]][issues-url] [![stars][stars-img]][stars-url] [![commits][commits-img]][commits-url]
 
