@@ -5,21 +5,19 @@
       "type": "static_library",
       "standlone_static_library": 1,
       "defines": [
+          "DYNAMIC_BMI2=0"
       ],
-
       "include_dirs": [
         "zstd/lib",
         "zstd/lib/common",
         "zstd/lib/compress",
         "zstd/lib/decompress"
       ],
-
       "sources" : [
         '<!@(ls -1 zstd/lib/common/*.c)',
         '<!@(ls -1 zstd/lib/compress/*.c)',
         '<!@(ls -1 zstd/lib/decompress/*.c)'
       ],
-
       "conditions": [
         [
           "OS == 'mac'", {
