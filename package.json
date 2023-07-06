@@ -1,6 +1,6 @@
 {
-  "name": "@skhaz/cppzst",
-  "version": "1.0.3",
+  "name": "@skhaz/zstd",
+  "version": "1.0.4",
   "description": "Zstd binding for Nodejs, with TypeScript support.",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",

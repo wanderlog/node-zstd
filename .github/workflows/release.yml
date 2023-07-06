@@ -23,7 +23,7 @@ jobs:
             macos-latest,
             buildjet-4vcpu-ubuntu-2204-arm,
           ]
-        node: ["10", "12", "14", "16", "18", "20"]
+        node: ["10", "12", "14", "16", "18"]
 
     steps:
       - uses: actions/checkout@v3
@@ -60,7 +60,7 @@ jobs:
             macos-latest,
             buildjet-4vcpu-ubuntu-2204-arm,
           ]
-        node: ["10", "12", "14", "16", "18", "20"]
+        node: ["10", "12", "14", "16", "18"]
 
     steps:
       - uses: actions/checkout@v3
