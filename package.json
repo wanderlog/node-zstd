@@ -1,6 +1,6 @@
 {
-  "name": "@xingrz/cppzst",
-  "version": "2.1.0-alpha.8",
+  "name": "@skhaz/cppzst",
+  "version": "1.0.0",
   "description": "Zstd binding for Nodejs, with TypeScript support.",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
@@ -39,6 +39,11 @@
       "name": "XiNGRZ",
       "email": "hi@xingrz.me",
       "url": "https://github.com/xingrz"
+    },
+    {
+      "name": "Rodrigo Delduca",
+      "email": "rodrigodelduca@gmail.com",
+      "url": "https://github.com/skhaz"
     }
   ],
   "license": "MIT",
@@ -49,11 +54,11 @@
   },
   "devDependencies": {
     "@types/bindings": "^1.5.1",
-    "@types/node": "^16.11.6",
+    "@types/node": "^20.4.0",
     "chai": "^4.2.0",
-    "mocha": "^8.2.0",
+    "mocha": "^10.2.0",
     "nyc": "^15.1.0",
-    "prebuildify": "^4.2.1",
-    "typescript": "^4.4.4"
+    "prebuildify": "^5.0.1",
+    "typescript": "^5.1.6"
   }
 }

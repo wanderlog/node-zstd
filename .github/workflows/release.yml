@@ -1,8 +1,14 @@
 name: release
 
+# on:
+#   release:
+#     types: [published]
+
 on:
-  release:
-    types: [published]
+  push:
+    branches:
+      - "main"
+      - "releases/**"
 
 jobs:
   build:
@@ -11,7 +17,7 @@ jobs:
     strategy:
       matrix:
         os: [windows-latest, ubuntu-latest, macos-latest]
-        node: ['10', '12', '14', '16']
+        node: ["10", "12", "14", "16", "18", "20"]
 
     steps:
       - uses: actions/checkout@v2
@@ -42,7 +48,7 @@ jobs:
     strategy:
       matrix:
         os: [windows-latest, ubuntu-latest, macos-latest]
-        node: ['10', '12', '14', '16']
+        node: ["10", "12", "14", "16", "18", "20"]
 
     steps:
       - uses: actions/checkout@v2
@@ -77,8 +83,8 @@ jobs:
 
       - uses: actions/setup-node@v1
         with:
-          node-version: '16'
-          registry-url: 'https://registry.npmjs.org'
+          node-version: "16"
+          registry-url: "https://registry.npmjs.org"
 
       - name: Download prebuilt artifacts
         uses: actions/download-artifact@v2
