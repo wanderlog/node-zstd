@@ -23,6 +23,9 @@ jobs:
         node: ["18"]
 
     steps:
+      - name: Check architecture
+        run: echo $HOSTTYPE
+
       - uses: actions/checkout@v2
         with:
           submodules: recursive
