@@ -12,12 +12,17 @@ on:
 
 jobs:
   build:
-    # runs-on: ${{ matrix.os }}
-    runs-on: self-hosted
+    runs-on: ${{ matrix.os }}
 
     strategy:
       matrix:
-        # os: [windows-latest, ubuntu-latest, macos-latest]
+        os:
+          [
+            windows-latest,
+            ubuntu-latest,
+            macos-latest,
+            buildjet-4vcpu-ubuntu-2204-arm,
+          ]
         #os: [ubuntu-latest]
         # node: ['10', '12', '14', '16', '18', '20']
         node: ["18"]
@@ -49,12 +54,18 @@ jobs:
 
   test:
     needs: build
-    runs-on: self-hosted
+    runs-on: ${{ matrix.os }}
 
     strategy:
       matrix:
-        # os: [windows-latest, ubuntu-latest, macos-latest]
-        # os: [ubuntu-latest]
+        os:
+          [
+            windows-latest,
+            ubuntu-latest,
+            macos-latest,
+            buildjet-4vcpu-ubuntu-2204-arm,
+          ]
+        #os: [ubuntu-latest]
         # node: ['10', '12', '14', '16', '18', '20']
         node: ["18"]
 
