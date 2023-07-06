@@ -16,13 +16,7 @@ jobs:
 
     strategy:
       matrix:
-        os:
-          [
-            windows-latest,
-            ubuntu-latest,
-            macos-latest,
-            buildjet-4vcpu-ubuntu-2204-arm,
-          ]
+        os: [ubuntu-latest, macos-latest, buildjet-4vcpu-ubuntu-2204-arm]
         node: ["10", "12", "14", "16", "18"]
 
     steps:
@@ -53,13 +47,7 @@ jobs:
 
     strategy:
       matrix:
-        os:
-          [
-            windows-latest,
-            ubuntu-latest,
-            macos-latest,
-            buildjet-4vcpu-ubuntu-2204-arm,
-          ]
+        os: [ubuntu-latest, macos-latest, buildjet-4vcpu-ubuntu-2204-arm]
         node: ["10", "12", "14", "16", "18"]
 
     steps:
