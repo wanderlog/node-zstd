@@ -23,20 +23,15 @@ jobs:
             macos-latest,
             buildjet-4vcpu-ubuntu-2204-arm,
           ]
-        #os: [ubuntu-latest]
-        # node: ['10', '12', '14', '16', '18', '20']
-        node: ["18"]
+        node: ["10", "12", "14", "16", "18", "20"]
 
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
         with:
           submodules: recursive
 
-      - name: Check architecture
-        run: echo $HOSTTYPE
-
       - name: Use Node.js ${{ matrix.node }}
-        uses: actions/setup-node@v1
+        uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node }}
 
@@ -47,7 +42,7 @@ jobs:
         run: npm run prebuildify
 
       - name: Upload artifacts
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
           name: prebuilds
           path: prebuilds
@@ -65,22 +60,20 @@ jobs:
             macos-latest,
             buildjet-4vcpu-ubuntu-2204-arm,
           ]
-        #os: [ubuntu-latest]
-        # node: ['10', '12', '14', '16', '18', '20']
-        node: ["18"]
+        node: ["10", "12", "14", "16", "18", "20"]
 
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
         with:
           submodules: recursive
 
       - name: Use Node.js ${{ matrix.node }}
-        uses: actions/setup-node@v1
+        uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node }}
 
       - name: Download prebuilt artifacts
-        uses: actions/download-artifact@v2
+        uses: actions/download-artifact@v3
         with:
           name: prebuilds
           path: prebuilds
@@ -96,11 +89,11 @@ jobs:
     runs-on: self-hosted
 
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
         with:
           submodules: recursive
 
-      - uses: actions/setup-node@v1
+      - uses: actions/setup-node@v3
         with:
           node-version: "18"
           registry-url: "https://registry.npmjs.org"
