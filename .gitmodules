@@ -1,4 +1,4 @@
-[submodule "deps/zstd"]
+[submodule "zstd"]
 	shallow = true
 	path = deps/zstd
 	url = https://github.com/facebook/zstd.git
