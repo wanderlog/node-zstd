@@ -12,23 +12,23 @@ on:
 
 jobs:
   build:
-    runs-on: ${{ matrix.os }}
+    # runs-on: ${{ matrix.os }}
+    runs-on: self-hosted
 
     strategy:
       matrix:
         # os: [windows-latest, ubuntu-latest, macos-latest]
         os: [ubuntu-latest]
-        architecture: [arm64, x64]
         # node: ['10', '12', '14', '16', '18', '20']
         node: ["18"]
 
     steps:
-      - name: Check architecture
-        run: echo $HOSTTYPE
-
       - uses: actions/checkout@v2
         with:
           submodules: recursive
+
+      - name: Check architecture
+        run: echo $HOSTTYPE
 
       - name: Use Node.js ${{ matrix.node }}
         uses: actions/setup-node@v1
@@ -55,7 +55,6 @@ jobs:
       matrix:
         # os: [windows-latest, ubuntu-latest, macos-latest]
         os: [ubuntu-latest]
-        architecture: [arm64, x64]
         # node: ['10', '12', '14', '16', '18', '20']
         node: ["18"]
 
