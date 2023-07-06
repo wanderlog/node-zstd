@@ -1,4 +1,4 @@
-# @skhaz/cppzst
+# @skhaz/zstd
 
 [![][npm-version]][npm-url] [![][npm-downloads]][npm-url] [![license][license-img]][license-url] [![issues][issues-img]][issues-url] [![stars][stars-img]][stars-url] [![commits][commits-img]][commits-url]
 
@@ -7,7 +7,7 @@ Zstd binding for Nodejs, with TypeScript support.
 ## Installation
 
 ```sh
-$ npm install @skhaz/cppzst --save
+$ npm install @skhaz/zstd --save
 ```
 
 ## Usage
@@ -17,7 +17,7 @@ $ npm install @skhaz/cppzst --save
 #### compress(buffer[, zstdCompressParams])
 
 ```ts
-import { compress } from "@skhaz/cppzst";
+import { compress } from "@skhaz/zstd";
 
 try {
   const output = await compress(input);
@@ -29,7 +29,7 @@ try {
 #### decompress(buffer[, zstdDecompressParams])
 
 ```ts
-import { decompress } from "@skhaz/cppzst";
+import { decompress } from "@skhaz/zstd";
 
 try {
   const output = await decompress(input);
@@ -43,7 +43,7 @@ try {
 #### compressSync(buffer[, zstdCompressParams])
 
 ```ts
-import { compressSync } from "@skhaz/cppzst";
+import { compressSync } from "@skhaz/zstd";
 
 try {
   const output = compressSync(input);
@@ -55,7 +55,7 @@ try {
 #### decompressSync(buffer[, zstdCompressParams])
 
 ```ts
-import { decompressSync } from "@skhaz/cppzst";
+import { decompressSync } from "@skhaz/zstd";
 
 try {
   const output = decompressSync(input);
@@ -69,7 +69,7 @@ try {
 #### compressStream([zstdCompressParams])
 
 ```ts
-import { compressStream } from "@skhaz/cppzst";
+import { compressStream } from "@skhaz/zstd";
 import { createReadStream, createWriteStream } from "fs";
 
 createReadStream("path/to/input")
@@ -80,7 +80,7 @@ createReadStream("path/to/input")
 #### decompressStream([zstdCompressParams])
 
 ```ts
-import { decompressStream } from "@skhaz/cppzst";
+import { decompressStream } from "@skhaz/zstd";
 import { createReadStream, createWriteStream } from "fs";
 
 createReadStream("path/to/input")
@@ -119,14 +119,14 @@ $ npm test
 
 MIT
 
-[npm-version]: https://img.shields.io/npm/v/@skhaz/cppzst.svg?style=flat-square
-[npm-downloads]: https://img.shields.io/npm/dm/@skhaz/cppzst.svg?style=flat-square
-[npm-url]: https://www.npmjs.org/package/@skhaz/cppzst
-[license-img]: https://img.shields.io/github/license/skhaz/cppzst?style=flat-square
+[npm-version]: https://img.shields.io/npm/v/@skhaz/zstd.svg?style=flat-square
+[npm-downloads]: https://img.shields.io/npm/dm/@skhaz/zstd.svg?style=flat-square
+[npm-url]: https://www.npmjs.org/package/@skhaz/zstd
+[license-img]: https://img.shields.io/github/license/skhaz/zstd?style=flat-square
 [license-url]: LICENSE
-[issues-img]: https://img.shields.io/github/issues/skhaz/cppzst?style=flat-square
-[issues-url]: https://github.com/skhaz/cppzst/issues
-[stars-img]: https://img.shields.io/github/stars/skhaz/cppzst?style=flat-square
-[stars-url]: https://github.com/skhaz/cppzst/stargazers
-[commits-img]: https://img.shields.io/github/last-commit/skhaz/cppzst?style=flat-square
-[commits-url]: https://github.com/skhaz/cppzst/commits/master
+[issues-img]: https://img.shields.io/github/issues/skhaz/zstd?style=flat-square
+[issues-url]: https://github.com/skhaz/zstd/issues
+[stars-img]: https://img.shields.io/github/stars/skhaz/zstd?style=flat-square
+[stars-url]: https://github.com/skhaz/zstd/stargazers
+[commits-img]: https://img.shields.io/github/last-commit/skhaz/zstd?style=flat-square
+[commits-url]: https://github.com/skhaz/zstd/commits/master

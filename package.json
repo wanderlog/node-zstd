@@ -21,7 +21,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/skhaz/cppzst.git"
+    "url": "git+https://github.com/skhaz/zstd.git"
   },
   "keywords": [
     "zstd",
