@@ -1,4 +1,4 @@
-# @xingrz/cppzst [![test](https://github.com/skhaz/cppzst/actions/workflows/test.yml/badge.svg)](https://github.com/skhaz/cppzst/actions/workflows/test.yml)
+# @skhaz/cppzst [![test](https://github.com/skhaz/cppzst/actions/workflows/test.yml/badge.svg)](https://github.com/skhaz/cppzst/actions/workflows/test.yml)
 
 [![][npm-version]][npm-url] [![][npm-downloads]][npm-url] [![license][license-img]][license-url] [![issues][issues-img]][issues-url] [![stars][stars-img]][stars-url] [![commits][commits-img]][commits-url]
 
@@ -17,7 +17,7 @@ $ npm install @skhaz/cppzst --save
 #### compress(buffer[, zstdCompressParams])
 
 ```ts
-import { compress } from "@xingrz/cppzst";
+import { compress } from "@skhaz/cppzst";
 
 try {
   const output = await compress(input);
@@ -29,7 +29,7 @@ try {
 #### decompress(buffer[, zstdDecompressParams])
 
 ```ts
-import { decompress } from "@xingrz/cppzst";
+import { decompress } from "@skhaz/cppzst";
 
 try {
   const output = await decompress(input);
@@ -43,7 +43,7 @@ try {
 #### compressSync(buffer[, zstdCompressParams])
 
 ```ts
-import { compressSync } from "@xingrz/cppzst";
+import { compressSync } from "@skhaz/cppzst";
 
 try {
   const output = compressSync(input);
@@ -55,7 +55,7 @@ try {
 #### decompressSync(buffer[, zstdCompressParams])
 
 ```ts
-import { decompressSync } from "@xingrz/cppzst";
+import { decompressSync } from "@skhaz/cppzst";
 
 try {
   const output = decompressSync(input);
@@ -69,7 +69,7 @@ try {
 #### compressStream([zstdCompressParams])
 
 ```ts
-import { compressStream } from "@xingrz/cppzst";
+import { compressStream } from "@skhaz/cppzst";
 import { createReadStream, createWriteStream } from "fs";
 
 createReadStream("path/to/input")
@@ -80,7 +80,7 @@ createReadStream("path/to/input")
 #### decompressStream([zstdCompressParams])
 
 ```ts
-import { decompressStream } from "@xingrz/cppzst";
+import { decompressStream } from "@skhaz/cppzst";
 import { createReadStream, createWriteStream } from "fs";
 
 createReadStream("path/to/input")
