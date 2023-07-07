@@ -10,13 +10,13 @@
   "scripts": {
     "install": "node-gyp-build",
     "test": "nyc mocha -t 5000",
-    "build:gyp:dev": "node-gyp -j 18 build --debug",
-    "build:gyp": "node-gyp -j 18 build",
+    "build:gyp:dev": "node-gyp -j 8 build --debug",
+    "build:gyp": "node-gyp -j 8 build",
     "build:ts": "tsc -p .",
     "build": "npm run build:gyp && npm run build:ts",
-    "rebuild:dev": "node-gyp -j 18 rebuild --debug",
-    "rebuild": "node-gyp -j 18 rebuild",
-    "prebuildify": "prebuildify -t node@ --strip",
+    "rebuild:dev": "node-gyp -j 8 rebuild --debug",
+    "rebuild": "node-gyp -j 8 rebuild",
+    "prebuildify": "PREBUILD_ARCH=arm64 PREBUILD_STRIP=1 prebuildify -t node@ --strip",
     "clean": "node-gyp clean"
   },
   "repository": {

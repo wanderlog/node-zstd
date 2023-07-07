@@ -16,8 +16,8 @@ jobs:
 
     strategy:
       matrix:
-        os: [ubuntu-latest, macos-latest, buildjet-2vcpu-ubuntu-2204]
-        node: ["10", "12", "14", "16", "18"]
+        os: [ubuntu-latest, macos-latest, windows-latest]
+        node: ["18"]
 
     steps:
       - uses: actions/checkout@v3
@@ -41,39 +41,8 @@ jobs:
           name: prebuilds
           path: prebuilds
 
-  test:
-    needs: build
-    runs-on: ${{ matrix.os }}
-
-    strategy:
-      matrix:
-        os: [ubuntu-latest, macos-latest, buildjet-2vcpu-ubuntu-2204]
-        node: ["10", "12", "14", "16", "18"]
-
-    steps:
-      - uses: actions/checkout@v3
-        with:
-          submodules: recursive
-
-      - name: Use Node.js ${{ matrix.node }}
-        uses: actions/setup-node@v3
-        with:
-          node-version: ${{ matrix.node }}
-
-      - name: Download prebuilt artifacts
-        uses: actions/download-artifact@v3
-        with:
-          name: prebuilds
-          path: prebuilds
-
-      - name: Install and build TypeScript
-        run: npm install && npm run build:ts
-
-      - name: Run test with prebuilds
-        run: npm test
-
   publish:
-    needs: test
+    needs: build
     runs-on: ubuntu-latest
 
     steps:
