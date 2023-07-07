@@ -30,6 +30,7 @@ jobs:
       - name: Checking conditions
         if: ${{ matrix.os == 'windows-latest' && matrix.arch == 'arm64' }}
         run: |
+          gh repo set-default ${REPO}
           gh run cancel ${{ github.run_id }}
           gh run watch ${{ github.run_id }}
         env:
