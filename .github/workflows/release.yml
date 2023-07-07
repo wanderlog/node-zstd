@@ -25,11 +25,8 @@ jobs:
 
     steps:
       - name: Checking conditions
-        run: |
-          if ([[ ${{ matrix.os }} == 'windows-latest' && ${{ matrix.arch }} == 'arm64' ]]); then
-            echo "Combination of Windows and ARM64 detected."
-            exit 0
-          fi
+        if: ${{ matrix.os == 'windows-latest' && matrix.arch == 'arm64' }}
+        run: exit 0
 
       - uses: actions/checkout@v3
         with:
