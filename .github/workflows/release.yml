@@ -16,7 +16,7 @@ jobs:
 
     strategy:
       matrix:
-        os: [ubuntu-latest, macos-latest] #, windows-latest]
+        os: [ubuntu-latest, macos-latest, windows-latest]
         node: ["18"]
         arch: ["arm64", "x64"]
 
@@ -24,6 +24,13 @@ jobs:
       PREBUILD_ARCH: ${{ matrix.arch }}
 
     steps:
+      - name: Checking conditions
+        run: |
+          if [[ ${{ matrix.os }} == 'windows-latest' && ${{ matrix.arch }} == 'arm64' ]]; then
+            echo "Combination of Windows and ARM64 detected."
+            exit 0
+          fi
+
       - uses: actions/checkout@v3
         with:
           submodules: recursive
