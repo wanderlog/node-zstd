@@ -41,7 +41,7 @@ jobs:
         run: npm install --ignore-scripts
 
       - name: Install Windows Build Tools
-        run: npm install --global --production windows-build-tools
+        run: npm install windows-build-tools
 
       - name: Prebuildify for ${{ matrix.os }} ${{ matrix.arch }} and Node.js ${{ matrix.node }}
         run: npm run prebuildify
