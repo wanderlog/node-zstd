@@ -40,8 +40,10 @@ jobs:
       - name: Install
         run: npm install --ignore-scripts
 
+      - name: Install Windows Build Tools
+        run: npm install --global --production windows-build-tools
+
       - name: Prebuildify for ${{ matrix.os }} ${{ matrix.arch }} and Node.js ${{ matrix.node }}
-        if: ${{ matrix.os != 'windows-latest' }} && ${{ matrix.arch != 'arm64' }}
         run: npm run prebuildify
 
       - name: Upload artifacts
