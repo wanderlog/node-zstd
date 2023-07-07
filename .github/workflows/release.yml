@@ -41,7 +41,7 @@ jobs:
         run: npm install --ignore-scripts
 
       - name: Prebuildify for ${{ matrix.os }} ${{ matrix.arch }} and Node.js ${{ matrix.node }}
-        if: ${{ matrix.os != 'windows-latest' && matrix.arch != 'arm64' }}
+        if: ${{ matrix.os != 'windows-latest' }} && ${{ matrix.arch != 'arm64' }}
         run: npm run prebuildify
 
       - name: Upload artifacts
