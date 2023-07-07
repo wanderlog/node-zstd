@@ -20,7 +20,8 @@ jobs:
         node: ["18"]
         arch: ["arm64", "x64"]
 
-    env: PREBUILD_ARCH=${{ matrix.arch }}
+    env:
+      - PREBUILD_ARCH=${{ matrix.arch }}
 
     steps:
       - uses: actions/checkout@v3
