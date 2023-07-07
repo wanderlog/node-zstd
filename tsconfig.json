@@ -9,11 +9,7 @@
     "experimentalDecorators": true,
     "esModuleInterop": true,
     "declaration": true,
-    "types": [
-      "node",
-    ],
+    "types": ["node"]
   },
-  "include": [
-    "ts/**/*",
-  ],
+  "include": ["ts/**/*"]
 }

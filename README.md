@@ -17,10 +17,10 @@ $ npm install @skhaz/zstd --save
 #### compress(buffer[, zstdCompressParams])
 
 ```ts
-import { compress } from "@skhaz/zstd";
+import { compress } from '@skhaz/zstd'
 
 try {
-  const output = await compress(input);
+  const output = await compress(input)
 } catch (err) {
   // ...
 }
@@ -29,10 +29,10 @@ try {
 #### decompress(buffer[, zstdDecompressParams])
 
 ```ts
-import { decompress } from "@skhaz/zstd";
+import { decompress } from '@skhaz/zstd'
 
 try {
-  const output = await decompress(input);
+  const output = await decompress(input)
 } catch (err) {
   // ...
 }
@@ -43,10 +43,10 @@ try {
 #### compressSync(buffer[, zstdCompressParams])
 
 ```ts
-import { compressSync } from "@skhaz/zstd";
+import { compressSync } from '@skhaz/zstd'
 
 try {
-  const output = compressSync(input);
+  const output = compressSync(input)
 } catch (err) {
   // ...
 }
@@ -55,10 +55,10 @@ try {
 #### decompressSync(buffer[, zstdCompressParams])
 
 ```ts
-import { decompressSync } from "@skhaz/zstd";
+import { decompressSync } from '@skhaz/zstd'
 
 try {
-  const output = decompressSync(input);
+  const output = decompressSync(input)
 } catch (err) {
   // ...
 }
@@ -69,23 +69,19 @@ try {
 #### compressStream([zstdCompressParams])
 
 ```ts
-import { compressStream } from "@skhaz/zstd";
-import { createReadStream, createWriteStream } from "fs";
+import { compressStream } from '@skhaz/zstd'
+import { createReadStream, createWriteStream } from 'fs'
 
-createReadStream("path/to/input")
-  .pipe(compressStream())
-  .pipe(createWriteStream("path/to/output"));
+createReadStream('path/to/input').pipe(compressStream()).pipe(createWriteStream('path/to/output'))
 ```
 
 #### decompressStream([zstdCompressParams])
 
 ```ts
-import { decompressStream } from "@skhaz/zstd";
-import { createReadStream, createWriteStream } from "fs";
+import { decompressStream } from '@skhaz/zstd'
+import { createReadStream, createWriteStream } from 'fs'
 
-createReadStream("path/to/input")
-  .pipe(decompressStream())
-  .pipe(createWriteStream("path/to/output"));
+createReadStream('path/to/input').pipe(decompressStream()).pipe(createWriteStream('path/to/output'))
 ```
 
 ### ZSTD Params
@@ -95,18 +91,18 @@ The `compress`, `compressSync` and `compressStream` methods may accept an option
 ```ts
 const zstdCompressParams = {
   level: 5, // default 1
-  dict: new Buffer("hello zstd"), // if dict null, left level only.
+  dict: new Buffer('hello zstd'), // if dict null, left level only.
   dictSize: dict.length, // if dict null, left level only.
-};
+}
 ```
 
 The `decompress`, `decompressSync` and `decompressStream` methods may accept an optional `zstdDecompressParams` object to define dict.
 
 ```ts
 const zdtdDecompressParams = {
-  dict: new Buffer("hello zstd"),
+  dict: new Buffer('hello zstd'),
   dictSize: dict.length,
-};
+}
 ```
 
 ## Tests
