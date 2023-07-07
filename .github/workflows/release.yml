@@ -19,7 +19,7 @@ jobs:
 
     strategy:
       matrix:
-        os: [ubuntu-latest, macos-latest, amazon-latest] # windows-latest
+        os: [amazon-latest]
         node: ['18']
 
     steps:
