@@ -31,14 +31,6 @@ jobs:
         with:
           submodules: recursive
 
-      - name: Checking conditions
-        if: ${{ matrix.os == 'windows-latest' && matrix.arch == 'arm64' }}
-        run: |
-          gh run cancel ${{ github.run_id }}
-          gh run watch ${{ github.run_id }}
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
       - name: Use Node.js ${{ matrix.node }}
         uses: actions/setup-node@v3
         with:
@@ -48,7 +40,8 @@ jobs:
       - name: Install
         run: npm install --ignore-scripts
 
-      - name: Prebuildify for ${{ matrix.os }} and Node.js ${{ matrix.node }}
+      - name: Prebuildify for ${{ matrix.os }} ${{ matrix.arch }} and Node.js ${{ matrix.node }}
+        if: ${{ matrix.os != 'windows-latest' && matrix.arch != 'arm64' }}
         run: npm run prebuildify
 
       - name: Upload artifacts
