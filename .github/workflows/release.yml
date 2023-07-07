@@ -19,7 +19,7 @@ jobs:
 
     strategy:
       matrix:
-        os: [ubuntu-latest, macos-latest, amazon-latest, macos-latest-arm] # windows-latest
+        os: [ubuntu-latest, macos-latest, amazon-latest] # windows-latest
         node: ['18']
 
     steps:
@@ -54,7 +54,7 @@ jobs:
         with:
           submodules: recursive
 
-      - uses: actions/setup-node@v2
+      - uses: actions/setup-node@v3
         with:
           node-version: '18'
           cache: 'npm'
