@@ -1,6 +1,6 @@
 {
   "name": "@skhaz/zstd",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "Zstd binding for Nodejs, with TypeScript support.",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
@@ -16,7 +16,7 @@
     "build": "npm run build:gyp && npm run build:ts",
     "rebuild:dev": "node-gyp -j 8 rebuild --debug",
     "rebuild": "node-gyp -j 8 rebuild",
-    "prebuildify": "PREBUILD_ARCH=arm64 PREBUILD_STRIP=1 prebuildify -t node@ --strip",
+    "prebuildify": "prebuildify -t node@ --strip",
     "clean": "node-gyp clean"
   },
   "repository": {
