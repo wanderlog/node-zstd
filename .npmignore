@@ -11,3 +11,6 @@
 
 /ts
 /tsconfig.json
+
+/src
+/deps
