@@ -19,7 +19,7 @@ jobs:
 
     strategy:
       matrix:
-        os: [buildjet-4vcpu-ubuntu-2204, buildjet-4vcpu-ubuntu-2204-arm, macbook-air-m2]
+        os: [buildjet-4vcpu-ubuntu-2204, buildjet-4vcpu-ubuntu-2204-arm]
         node: ['16', '18', '20']
 
     steps:
