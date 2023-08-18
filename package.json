@@ -1,9 +1,10 @@
 {
   "name": "@skhaz/zstd",
-  "version": "1.0.17",
+  "version": "1.0.18",
   "description": "Zstd binding for Nodejs, with TypeScript support.",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
+  "gypfile": true,
   "engines": {
     "node": ">=10"
   },
@@ -17,6 +18,7 @@
     "rebuild:dev": "node-gyp -j 8 rebuild --debug",
     "rebuild": "node-gyp -j 8 rebuild",
     "prebuildify": "prebuildify -t node@ --strip",
+    "configure": "node-gyp configure",
     "clean": "node-gyp clean"
   },
   "repository": {
