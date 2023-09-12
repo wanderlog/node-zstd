@@ -5,6 +5,7 @@
       "type": "static_library",
       "standlone_static_library": 1,
       "defines": [
+        "DYNAMIC_BMI2=0"
       ],
       "include_dirs": [
         "zstd/lib",
