@@ -5,7 +5,7 @@
       "type": "static_library",
       "standlone_static_library": 1,
       "defines": [
-        "DYNAMIC_BMI2=0"
+        "ZSTD_ENABLE_ASM_X86_64_BMI2=0"
       ],
       "include_dirs": [
         "zstd/lib",
