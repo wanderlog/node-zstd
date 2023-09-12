@@ -8,6 +8,3 @@
 
 /test
 /.nyc_output
-
-/ts
-/tsconfig.json

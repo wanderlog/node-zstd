@@ -4,11 +4,7 @@
       "target_name": "zstd",
       "type": "static_library",
       "standlone_static_library": 1,
-      "target_defaults": {
-        "cflags": ["-O2"]
-      },
       "defines": [
-          "DYNAMIC_BMI2=0"
       ],
       "include_dirs": [
         "zstd/lib",
