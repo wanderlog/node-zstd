@@ -1,7 +1,7 @@
 {
   "name": "@skhaz/zstd",
-  "version": "1.0.20",
-  "description": "Zstd binding for Nodejs, with TypeScript and ARM64 support.",
+  "version": "1.0.21",
+  "description": "Zstd (Zstandard) binding for Nodejs, with TypeScript, AMD64 & ARM64 support.",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
   "engines": {
