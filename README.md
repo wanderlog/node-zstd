@@ -2,7 +2,7 @@
 
 [![][npm-version]][npm-url] [![][npm-downloads]][npm-url] [![license][license-img]][license-url] [![issues][issues-img]][issues-url] [![stars][stars-img]][stars-url] [![commits][commits-img]][commits-url]
 
-Zstd binding for Nodejs, with TypeScript support.
+Zstd binding for Nodejs, with TypeScript and ARM64 support.
 
 ## Installation
 

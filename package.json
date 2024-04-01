@@ -1,7 +1,7 @@
 {
   "name": "@skhaz/zstd",
   "version": "1.0.19",
-  "description": "Zstd binding for Nodejs, with TypeScript support.",
+  "description": "Zstd binding for Nodejs, with TypeScript and ARM64 support.",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
   "engines": {
@@ -24,11 +24,7 @@
     "type": "git",
     "url": "git+https://github.com/skhaz/node-zstd.git"
   },
-  "keywords": [
-    "zstd",
-    "compression",
-    "decompression"
-  ],
+  "keywords": ["zstd", "compression", "decompression"],
   "author": "zwb-ict",
   "contributors": [
     {
